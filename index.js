@@ -18,7 +18,10 @@ async function getObjectS3(mykey){
       Key : mykey
     })
 
-    const url = await getSignedUrl(s3Client , command);
+    const url = await getSignedUrl(s3Client , command , {
+        expiresIn : 20,
+        
+    });
     console.log(url);
 
     return url;
